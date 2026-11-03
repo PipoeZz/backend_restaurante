@@ -1,4 +1,4 @@
-from rest_framework import viewset
+from rest_framework import viewsets
 from .models import Categoria, Producto, Pedido, DetallePedido
 from .serializers import CategoriaSerializer, ProductoSerializer, PedidoSerializer, DetallePedidoSerializer
 
