@@ -19,6 +19,10 @@ class Pedido(models.Model):
     total = models.IntegerField(default=0)
     completado = models.BooleanField(default=False)
 
+    def actualizar_total(self): # suma los subtotales de los platos hacia la boleta
+        self.total = sum(detalle.subtotal for detalle in self.detalles.all())
+        self.save()
+
     def __str__(self):
         return f"Pedido {self.id} - Total: ${self.total}"
 
@@ -27,6 +31,11 @@ class DetallePedido(models.Model):
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
     cantidad = models.IntegerField(default=1)
     subtotal = models.IntegerField(default=0)
+
+    def save(self, *args, **kwargs):
+        self.subtotal = self.producto.precio * self.cantidad # intercepta el guardado y calcula el subtotal (precio real x cantidad)
+        super().save(*args, **kwargs) # guarda el detalle en la base de datos
+        self.pedido.actualizar_total() # le ordena a la boleta que recalcule su total sumando todo
 
     def __str__(self):
         return f"{self.cantidad}x {self.producto.nombre} en Pedido {self.pedido.id}"
