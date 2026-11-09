@@ -35,7 +35,9 @@ class DetallePedido(models.Model):
     def save(self, *args, **kwargs):
         self.subtotal = self.producto.precio * self.cantidad # intercepta el guardado y calcula el subtotal (precio real x cantidad)
         super().save(*args, **kwargs) # guarda el detalle en la base de datos
-        self.pedido.actualizar_total() # le ordena a la boleta que recalcule su total sumando todo
+        from .models import Pedido
+        pedido_fresco = Pedido.objects.get(id=self.pedido.id) # obtiene la boleta actualizada desde la base de datos
+        pedido_fresco.actualizar_total() # le ordena a la boleta que recalcule su total sumando todo
 
     def __str__(self):
         return f"{self.cantidad}x {self.producto.nombre} en Pedido {self.pedido.id}"
