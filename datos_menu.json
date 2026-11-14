@@ -1,0 +1,145 @@
+[
+{
+    "model": "menu.categoria",
+    "pk": 2,
+    "fields": {
+        "nombre": "Bebidas"
+    }
+},
+{
+    "model": "menu.categoria",
+    "pk": 3,
+    "fields": {
+        "nombre": "Extras"
+    }
+},
+{
+    "model": "menu.categoria",
+    "pk": 4,
+    "fields": {
+        "nombre": "Promos"
+    }
+},
+{
+    "model": "menu.categoria",
+    "pk": 5,
+    "fields": {
+        "nombre": "Platos"
+    }
+},
+{
+    "model": "menu.categoria",
+    "pk": 6,
+    "fields": {
+        "nombre": "Extras"
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 3,
+    "fields": {
+        "nombre": "Hamburguesa Clásica",
+        "precio": 5000,
+        "categoria": 5
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 4,
+    "fields": {
+        "nombre": "Churrasco",
+        "precio": 6000,
+        "categoria": 5
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 5,
+    "fields": {
+        "nombre": "Completo Italiano",
+        "precio": 3500,
+        "categoria": 5
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 6,
+    "fields": {
+        "nombre": "Papas Fritas",
+        "precio": 2500,
+        "categoria": 3
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 7,
+    "fields": {
+        "nombre": "Empanadas de Queso",
+        "precio": 3000,
+        "categoria": 3
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 8,
+    "fields": {
+        "nombre": "Bebida (Lata 350ml)",
+        "precio": 1500,
+        "categoria": 2
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 9,
+    "fields": {
+        "nombre": "Agua Mineral (500ml)",
+        "precio": 1000,
+        "categoria": 2
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 10,
+    "fields": {
+        "nombre": "Promo Completo",
+        "precio": 5000,
+        "categoria": 4
+    }
+},
+{
+    "model": "menu.producto",
+    "pk": 11,
+    "fields": {
+        "nombre": "Promo Hamburguesa",
+        "precio": 7000,
+        "categoria": 4
+    }
+},
+{
+    "model": "menu.pedido",
+    "pk": 1,
+    "fields": {
+        "fecha_creacion": "2026-11-05T15:02:18.350Z",
+        "total": 10000,
+        "completado": false
+    }
+},
+{
+    "model": "menu.pedido",
+    "pk": 2,
+    "fields": {
+        "fecha_creacion": "2026-11-05T15:05:15.627Z",
+        "total": 0,
+        "completado": false
+    }
+},
+{
+    "model": "menu.pedido",
+    "pk": 3,
+    "fields": {
+        "fecha_creacion": "2026-11-09T20:31:25.839Z",
+        "total": 25000,
+        "completado": false
+    }
+}
+]
