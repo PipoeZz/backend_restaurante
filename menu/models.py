@@ -1,4 +1,5 @@
 from django.db import models
+from django.core.validators import MinValueValidator
 
 class Categoria(models.Model):
     nombre = models.CharField(max_length=100)
@@ -8,7 +9,8 @@ class Categoria(models.Model):
 
 class Producto(models.Model):
     nombre = models.CharField(max_length=100)
-    precio = models.IntegerField()
+    # el precio no puede ser menor a 0, por eso se usa MinValueValidator
+    precio = models.IntegerField(validators=[MinValueValidator(0)])
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -29,7 +31,8 @@ class Pedido(models.Model):
 class DetallePedido(models.Model):
     pedido = models.ForeignKey(Pedido, related_name='detalles', on_delete=models.CASCADE)
     producto = models.ForeignKey(Producto, on_delete=models.CASCADE)
-    cantidad = models.IntegerField(default=1)
+    # la cantidad minima permitida en un pedido es 1
+    cantidad = models.IntegerField(default=1, validators=[MinValueValidator(1)])
     subtotal = models.IntegerField(default=0)
 
     def save(self, *args, **kwargs):
