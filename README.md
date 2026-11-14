@@ -29,9 +29,13 @@ Ejecuta estos dos comandos para crear las tablas:
 python manage.py makemigrations
 python manage.py migrate
 
-7. **Ejecutar el servidor:**
+7. **Cargar los datos iniciales del menú**
+Puebla la base de datos con los productos, precios y categorías
+python manage.py loaddata datos_menu.json
+
+8. **Ejecutar el servidor:**
 Inicia la aplicación:
 python manage.py runserver
 
-8. **Ver el proyecto:**
+9. **Ver el proyecto:**
 Abre un navegador y visita: http://127.0.0.1:8000/
